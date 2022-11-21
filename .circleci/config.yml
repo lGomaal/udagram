@@ -79,7 +79,8 @@ jobs:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
-            cat udagram/udagram-api/.elasticbeanstalk/config.yml && \
+            cat ~/.aws/credentials && \
+            cat ~/.aws/config && \
             npm run deploy
 
 workflows:
