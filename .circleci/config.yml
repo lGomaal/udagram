@@ -46,24 +46,24 @@ jobs:
             npm run api:build
 
   # test the front end application
-  test:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: 'cimg/node:14.15'
-    steps:
-      # install node and checkout code
-      - node/install:
-          node-version: '14.15'
-      - checkout
-      # Use root level package.json to install dependencies in the frontend app
-      - run:
-          name: Unit testing front end part
-          command: |
-            npm run frontend:test
-      - run:
-          name: End to end testing front end part
-          command: |
-            npm run frontend:e2e
+  # test:
+  #   docker:
+  #     # the base image can run most needed actions with orbs
+  #     - image: 'cimg/node:14.15'
+  #   steps:
+  #     # install node and checkout code
+  #     - node/install:
+  #         node-version: '14.15'
+  #     - checkout
+  #     # Use root level package.json to install dependencies in the frontend app
+  #     - run:
+  #         name: Unit testing front end part
+  #         command: |
+  #           npm run frontend:test
+  #     - run:
+  #         name: End to end testing front end part
+  #         command: |
+  #           npm run frontend:e2e
   # deploy step will run only after manual approval
   deploy:
     docker:
@@ -85,9 +85,9 @@ workflows:
   udagram:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      # - test:
+      #     requires:
+      #       - build
       - hold:
           filters:
             branches:
@@ -95,7 +95,7 @@ workflows:
                 - master
           type: approval
           requires:
-            - test
+            - build
       - deploy:
           requires:
             - hold
