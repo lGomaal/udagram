@@ -86,9 +86,8 @@ workflows:
     jobs:
       - build
       - test:
-        type: approval
-        requires:
-          - build
+          requires:
+            - build
       - hold:
           filters:
             branches:
