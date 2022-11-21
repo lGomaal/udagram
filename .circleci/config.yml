@@ -59,7 +59,7 @@ jobs:
       - run:
           name: Unit testing front end part
           command: |
-          npm run frontend:test
+            npm run frontend:test
       - run:
           name: End to end testing front end part
           command: |
