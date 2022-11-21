@@ -85,7 +85,9 @@ workflows:
   udagram:
     jobs:
       - build
-      - test
+      - test:
+        requires:
+          - build
       - hold:
           filters:
             branches:
@@ -93,7 +95,6 @@ workflows:
                 - master
           type: approval
           requires:
-            - build
             - test
       - deploy:
           requires:
