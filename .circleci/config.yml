@@ -30,10 +30,10 @@ jobs:
           command: |
             npm run api:install
       # TODO: Lint the frontend
-      # - run:
-      #     name: Front-End Lint
-      #     command: |
-      #       npm run frontend:lint
+      - run:
+          name: Front-End Lint
+          command: |
+            npm run frontend:lint
       # TODO: Build the frontend app
       - run:
           name: Front-End Build
@@ -79,8 +79,6 @@ jobs:
           name: Deploy App
           # TODO: Install, build, deploy in both apps
           command: |
-            cat ~/.aws/credentials && \
-            cat ~/.aws/config && \
             npm run deploy
 
 workflows:
