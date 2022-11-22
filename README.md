@@ -36,7 +36,11 @@ Provision the necessary AWS services needed for running the application:
 
 ## How to Deploy
 
-Just Go to the main directory and after all the installations steps run `npm run deploy`.
+Just go to the main directory and push the code to the github repo and circleci with its pipeline config will do the work.
+
+## Pipeline Diagram
+
+![Diagram](docs/imgs/pipeline.png 'figure 2')
 
 ## Application Links
 
